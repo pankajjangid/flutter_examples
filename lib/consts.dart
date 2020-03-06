@@ -1,0 +1,10 @@
+
+library constants;
+
+class Constant {}
+ 
+
+ 
+
+
+}
