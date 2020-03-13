@@ -9,7 +9,7 @@ class Login extends StatelessWidget {
       theme: CustomWidget.getTheme(),
       home: Scaffold(
         resizeToAvoidBottomPadding: false,
-          appBar: CustomWidget.getAppbar(Constants.TITLE_LOGIN),
+          appBar: CustomWidget.getAppbarWithBack(context,Constants.TITLE_LOGIN),
           body: Home()),
     );
   }

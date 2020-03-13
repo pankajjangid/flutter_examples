@@ -1,8 +1,8 @@
 
 import 'package:demo2020/login.dart';
+import 'package:demo2020/splash.dart';
 import 'package:demo2020/utils/utils.dart';
 import 'package:flutter/material.dart';
-
 import 'constants.dart';
 import 'utils/config.dart';
 
@@ -12,7 +12,7 @@ class ExampleList extends StatelessWidget {
     List<String> exampleList = Constants.exampleList;
 
     return MaterialApp(
-      debugShowCheckedModeBanner: Config,
+      debugShowCheckedModeBanner: Config.DEBUG_MODE,
       title: "Flutter example",
       theme: CustomWidget.getTheme(),
       home: ExampleHome(
@@ -32,10 +32,13 @@ class ExampleHome extends StatelessWidget {
 
     switch (title) {
       case Constants.TITLE_SPLASH:
-        Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Splash()));
+
         break;
         
       case Constants.TITLE_LOGIN:
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+
         break;
       default:
     }

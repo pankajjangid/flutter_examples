@@ -58,4 +58,11 @@ class CustomWidget {
         title: Text(title),
 
       );
+
+      
+  static AppBar getAppbarWithBack( BuildContext context ,  title) => AppBar(
+        title: Text(title),
+        leading: IconButton(icon: Icon(Icons.arrow_back),onPressed:() =>Navigator.of(context).pop(),),
+
+      );
 }
