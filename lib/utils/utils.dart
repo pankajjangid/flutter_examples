@@ -1,9 +1,9 @@
 import 'dart:math' as Math;
 import 'dart:ui';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:flutter/material.dart';
 
-const _TAG = 'Util';
 
 class StringUtil {
   static bool equalIgnoreCase(String s1, String s2) =>
@@ -58,4 +58,25 @@ class CustomWidget {
         title: Text(title),
 
       );
+
+      
+  static AppBar getAppbarWithBack( BuildContext context ,  title) => AppBar(
+        title: Text(title),
+        leading: IconButton(icon: Icon(Icons.arrow_back),onPressed:() =>Navigator.of(context).pop(),),
+
+      );
+
+  static showToast(String title){
+    Fluttertoast.showToast(
+                            msg: title,
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIos: 1,
+                            backgroundColor: Colors.red,
+                            textColor: Colors.white,
+                            fontSize: 16.0);
+  }
 }
+
+
+
