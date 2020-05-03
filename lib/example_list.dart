@@ -3,8 +3,11 @@ import 'package:demo2020/splash.dart';
 import 'package:demo2020/utils/listexample.dart';
 import 'package:demo2020/utils/utils.dart';
 import 'package:flutter/material.dart';
+
+import './bottom_navigation.dart';
+import './radiobutton.dart';
+import './utils/config.dart';
 import 'constants.dart';
-import 'utils/config.dart';
 
 class ExampleList extends StatelessWidget {
   @override
@@ -24,6 +27,7 @@ class ExampleList extends StatelessWidget {
 
 class ExampleHome extends StatelessWidget {
   ExampleHome({Key key, this.exampleList});
+
   final List<String> exampleList;
 
   void onListClick(String title, BuildContext context) {
@@ -42,10 +46,20 @@ class ExampleHome extends StatelessWidget {
 
         break;
 
-        case Constants.TITLE_API_CALLING :
+      case Constants.TITLE_API_CALLING:
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => CustomList()));
 
-Navigator.push(context, MaterialPageRoute(builder: (context) => CustomList())); 
+        break;
 
+      case Constants.TITLE_BOTTOM_NAVIGATION:
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => BottomNavigationExample()));
+        break;
+
+      case Constants.TITLE_RADIO_BUTTON:
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => RadioButtonEx()));
         break;
       case Constants.TITLE_ALERT_DIALOG:
         showDialog(
@@ -61,22 +75,22 @@ Navigator.push(context, MaterialPageRoute(builder: (context) => CustomList()));
                         CustomWidget.showToast("You click on yes");
                       },
                       child: Text("Yes")),
-                  FlatButton(onPressed: () {
-                    
+                  FlatButton(
+                      onPressed: () {
                         Navigator.of(context).pop();
                         CustomWidget.showToast("You click on No");
-                  }, child: Text("No"))
+                      },
+                      child: Text("No"))
                 ],
               );
             });
 
         break;
 
-        case Constants.TITLE_CUSTOM_DIALOG:
-
-          showDialog(context: context,
-          builder: (BuildContext buildContext){
-
+      case Constants.TITLE_CUSTOM_DIALOG:
+        showDialog(
+            context: context,
+            builder: (BuildContext buildContext) {
               return Dialog(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(6.0),
@@ -84,28 +98,46 @@ Navigator.push(context, MaterialPageRoute(builder: (context) => CustomList()));
                 child: Container(
                   padding: EdgeInsets.all(20.0),
                   height: 200.0,
-                  
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text("Demo Title",textScaleFactor: 1.3,),
-                      Padding(padding: EdgeInsets.only(top: 20.0),
-                      child: Text("You can put your content over here",textScaleFactor: 1.0,),),
-                      Padding(padding: EdgeInsets.only(top:30.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-
-                          MaterialButton(onPressed: (){Navigator.of(context).pop();},child: Text("Yes"),),
-                          MaterialButton(onPressed: (){Navigator.of(context).pop();},child: Text("No"),),
-                        ],
-                      ),)
+                      Text(
+                        "Demo Title",
+                        textScaleFactor: 1.3,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20.0),
+                        child: Text(
+                          "You can put your content over here",
+                          textScaleFactor: 1.0,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 30.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            MaterialButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text("Yes"),
+                            ),
+                            MaterialButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text("No"),
+                            ),
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 ),
               );
-          });
+            });
         break;
       default:
     }
