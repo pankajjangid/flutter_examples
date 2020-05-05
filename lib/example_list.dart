@@ -1,5 +1,6 @@
 import 'package:demo2020/login.dart';
 import 'package:demo2020/splash.dart';
+import 'package:demo2020/text_file_io.dart';
 import 'package:demo2020/utils/listexample.dart';
 import 'package:demo2020/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -60,6 +61,10 @@ class ExampleHome extends StatelessWidget {
       case Constants.TITLE_RADIO_BUTTON:
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => RadioButtonEx()));
+        break;
+      case Constants.TITLE_READ_WRITE_TEXT_FILE:
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => TextIO()));
         break;
       case Constants.TITLE_ALERT_DIALOG:
         showDialog(

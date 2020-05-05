@@ -52,15 +52,18 @@ class _CustomListState extends State<CustomList> {
                     itemCount: data == null ? 0 : data.length,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
-                        child: Center(
+                        padding: EdgeInsets.all(2.0),
+                        child: Card(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: <Widget>[
-                              Card(
-                                child: Container(
-                                  padding: EdgeInsets.all(10.0),
-                                  child: Text(data[index]['name']),
-                                ),
+                              Container(
+                                padding: EdgeInsets.all(5.0),
+                                child: Text("Name : ${data[index]['name']}"),
+                              ),
+                              Container(
+                                padding: EdgeInsets.all(5.0),
+                                child: Text("Email : ${data[index]['email']}"),
                               )
                             ],
                           ),

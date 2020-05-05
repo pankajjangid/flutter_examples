@@ -8,6 +8,7 @@ class Constants {
   static const String TITLE_API_CALLING = "Api Calling";
   static const String TITLE_BOTTOM_NAVIGATION = "Bottom Navigation";
   static const String TITLE_RADIO_BUTTON = "Radio Button";
+  static const String TITLE_READ_WRITE_TEXT_FILE = "Read Write Text File";
 
   static const List<String> exampleList = [
     TITLE_SPLASH,
@@ -17,6 +18,7 @@ class Constants {
     TITLE_IOS_DIALOG,
     TITLE_API_CALLING,
     TITLE_BOTTOM_NAVIGATION,
-    TITLE_RADIO_BUTTON
+    TITLE_RADIO_BUTTON,
+    TITLE_READ_WRITE_TEXT_FILE,
   ];
 }
